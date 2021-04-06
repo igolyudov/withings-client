@@ -26,7 +26,10 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 
@@ -40,15 +43,15 @@ public class WithingsClientTests {
 	@Test
 	public void testGetAuthToken() throws IOException
 	{
-		String clientId=System.getProperty("clientId");;
-		String secretKey=System.getProperty("secretKey");
-		String code = "cb0617f219e6296f4c482ec82407d5f30c3e230b";
-		String redirectUrl = "http://localhost/auth";
+		String clientId="4900fadde42c96c4c95591863f0dc58cccd68a9440375462e04acb4690ac5027";
+		String secretKey="d3dfc8ae1bc6d51fc42f1c3facf4c4ebb6aad4f55cf64d0289af696e09718de2";
+		String code = "6ac481e48bce25db63b91d35b75eb945868c50d7";
+		String redirectUrl = "http://healthreport.ml:9090/auth";
 
 		AuthRequest req = new AuthRequest(clientId, secretKey, code, redirectUrl, false);
 		log.info("req: {}",req);
 		assertNotNull(req);
-		WithingsClient client = new WithingsClient(BASE_URL);
+		WithingsClient client = new WithingsClient();
 		AuthResponse resp = client.getToken(req);
 		log.info("resp: {}",resp);
 		assertNotNull(resp);
@@ -182,6 +185,21 @@ public class WithingsClientTests {
 		GetGoalsResponse resp = client.getGoals(token,req);
 		log.info("resp: {}",resp);
 		assertNotNull(resp);
+	}
+
+	@Test
+	public void testSign()
+	{
+		String clientId = "123";
+		String secretKey="321";
+		String signature="e31578567e9bf03aca4821b7697016195c7d337963f1c85a3035148d7394efdc";
+		String action="getnonce";
+		Long timestamp=1617741683L;
+		Map<String,String> map = new HashMap<>();
+		map.put("client_id",clientId);
+		map.put("action", action);
+		map.put("timestamp", Long.toString(timestamp));
+		assertEquals(signature,SignUtility.sign(map,secretKey));
 	}
 
 }
