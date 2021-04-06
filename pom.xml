@@ -3,8 +3,8 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>ml.bigbrains</groupId>
-	<artifactId>withings</artifactId>
-	<version>0.1.9-SNAPSHOT</version>
+	<artifactId>withings-client</artifactId>
+	<version>0.1.10-SNAPSHOT</version>
 	<name>WithingsClient</name>
 	<description>Withings API client</description>
 	<packaging>jar</packaging>
