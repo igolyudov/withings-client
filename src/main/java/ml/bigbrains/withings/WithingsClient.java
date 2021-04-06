@@ -51,14 +51,15 @@ public class WithingsClient {
         if(nonceResponse==null || nonceResponse.getBody()==null)
         {
             log.error("Error in get nonce for request");
-            return null;
         }
         Map<String,String> mapForSign = new HashMap<>();
         mapForSign.put("action",request.getAction());
         mapForSign.put("client_id",request.getClientId());
-        mapForSign.put("nonce",nonceResponse.getBody().getNonce());
+        if(nonceResponse.getBody()!=null)
+            mapForSign.put("nonce",nonceResponse.getBody().getNonce());
         String signature = SignUtility.sign(mapForSign,  request.getClientSecretKey());
-        request.setNonce(nonceResponse.getBody().getNonce());
+        if(nonceResponse.getBody()!=null)
+            request.setNonce(nonceResponse.getBody().getNonce());
         request.setSignature(signature);
         log.debug("auth request map: {}",request.getParamMap());
         AuthResponse response = postRequest(request.getRequestUrl(), request.getParamMap(), AuthResponse.class);
@@ -113,7 +114,8 @@ public class WithingsClient {
         FormBody.Builder body = new FormBody.Builder();
 
         for(Map.Entry<String,String> entry: params.entrySet())
-            body.add(entry.getKey(),entry.getValue());
+            if(entry.getKey()!=null && entry.getValue()!=null)
+                body.add(entry.getKey(),entry.getValue());
 
         RequestBody formBody  = body.build();
         okhttp3.Request request = new Request.Builder()
