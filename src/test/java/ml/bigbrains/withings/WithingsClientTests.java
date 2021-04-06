@@ -36,13 +36,6 @@ public class WithingsClientTests {
 
 	private static final String BASE_URL = "https://wbsapi.withings.net/v2/";
 
-	@Test
-	public void loadContext()
-	{
-		String clientId = System.getProperty("clientId");
-		log.debug("ClientID: {}",clientId);
-		assertNotNull(clientId);
-	}
 
 	@Test
 	public void testGetAuthToken() throws IOException
@@ -50,7 +43,7 @@ public class WithingsClientTests {
 		String clientId=System.getProperty("clientId");;
 		String secretKey=System.getProperty("secretKey");
 		String code = "cb0617f219e6296f4c482ec82407d5f30c3e230b";
-		String redirectUrl = "http://healthreport.ml:9090/auth";
+		String redirectUrl = "http://localhost/auth";
 
 		AuthRequest req = new AuthRequest(clientId, secretKey, code, redirectUrl, false);
 		log.info("req: {}",req);
@@ -100,7 +93,7 @@ public class WithingsClientTests {
 		String clientId=System.getProperty("clientId");
 		String secretKey=System.getProperty("secretKey");
 		String refreshToken =System.getProperty("refreshToken");
-		String redirectUrl = "http://healthreport.ml:9090/auth";
+		String redirectUrl = "http://localhost/auth";
 
 		AuthRequest req = new AuthRequest(clientId, secretKey, refreshToken, redirectUrl, true);
 		log.info("req: {}",req);
