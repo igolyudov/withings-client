@@ -4,11 +4,13 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>ml.bigbrains</groupId>
 	<artifactId>withings-client</artifactId>
-	<version>0.1.10-SNAPSHOT</version>
+	<version>0.1.11-SNAPSHOT</version>
 	<name>WithingsClient</name>
 	<description>Withings API client</description>
 	<packaging>jar</packaging>
 	<properties>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
 		<java.version>8</java.version>
 		<okhttp.version>4.8.1</okhttp.version>
 		<commons-codec.version>1.15</commons-codec.version>
@@ -18,6 +20,7 @@
 		<jackson.version>2.12.1</jackson.version>
 		<logback.version>1.2.3</logback.version>
 	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>com.squareup.okhttp3</groupId>
