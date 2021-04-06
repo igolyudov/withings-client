@@ -1,11 +1,13 @@
 package ml.bigbrains.withings.model.heart;
 
 import lombok.Getter;
+import lombok.ToString;
 import ml.bigbrains.withings.model.GenericRequest;
 
 import java.util.HashMap;
 import java.util.Map;
 
+@ToString
 public class HeartRequest implements GenericRequest {
 
     @Getter

@@ -2,12 +2,13 @@ package ml.bigbrains.withings.model.token;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 import ml.bigbrains.withings.model.GenericRequest;
 
 import java.util.HashMap;
 import java.util.Map;
 
-
+@ToString
 public class AuthRequest implements GenericRequest {
 
     @Getter

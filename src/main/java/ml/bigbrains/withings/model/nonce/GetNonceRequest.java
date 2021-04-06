@@ -2,6 +2,7 @@ package ml.bigbrains.withings.model.nonce;
 
 import lombok.Data;
 import lombok.Getter;
+import lombok.ToString;
 import ml.bigbrains.withings.SignUtility;
 import ml.bigbrains.withings.model.GenericRequest;
 
@@ -11,7 +12,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-
+@ToString
 public class GetNonceRequest implements GenericRequest {
 
     @Getter

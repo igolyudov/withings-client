@@ -1,6 +1,7 @@
 package ml.bigbrains.withings.model.sleep;
 
 import lombok.Getter;
+import lombok.ToString;
 import ml.bigbrains.withings.model.GenericRequest;
 
 import java.time.LocalDate;
@@ -9,6 +10,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@ToString
 public class SleepRequest implements GenericRequest {
 
     @Getter

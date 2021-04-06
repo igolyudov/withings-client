@@ -1,6 +1,7 @@
 package ml.bigbrains.withings.model.heart;
 
 import lombok.Getter;
+import lombok.ToString;
 import ml.bigbrains.withings.model.GenericRequest;
 
 import java.time.LocalDateTime;
@@ -8,6 +9,7 @@ import java.time.ZoneId;
 import java.util.HashMap;
 import java.util.Map;
 
+@ToString
 public class HeartListRequest implements GenericRequest {
 
     @Getter
