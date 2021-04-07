@@ -1,5 +1,5 @@
 # Withings API client
-Withings API client implement in JAVA
+Withings API client implement in JAVA that support OAuth 2.0
 
 [Developers documentation](http://developer.withings.com)
 
